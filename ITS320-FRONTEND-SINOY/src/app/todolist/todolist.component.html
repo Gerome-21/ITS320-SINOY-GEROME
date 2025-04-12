@@ -1,0 +1,25 @@
+<div class="max-w-lg mx-auto bg-white shadow-lg rounded-lg p-6">
+  <h1 class="text-2xl font-bold mb-4 text-center">📝 My To-Do List</h1>
+
+  <div class="flex gap-2">
+    <input
+      type="text"
+      [formControl]="taskControl"
+      placeholder="Enter a task..."
+      class="w-full p-2 border rounded-lg"
+    />
+    <button (click)="addTask()" class="bg-blue-500 text-white px-4 py-2 rounded-lg cursor-pointer">
+      ➕ Add
+    </button>
+  </div>
+
+  <ul class="mt-4">
+    <li
+      *ngFor="let task of tasks; let i = index"
+      class="flex justify-between bg-gray-100 p-2 mt-2 rounded-lg"
+    >
+      <span>{{ task.task }}</span>
+      <button (click)="removeTask(i)" class="text-red-500 hover:underline">🗑️</button>
+    </li>
+  </ul>
+</div>
