@@ -9,7 +9,7 @@
       class="w-full p-2 border rounded-lg"
     />
     <button (click)="addTask()" class="bg-blue-500 text-white px-4 py-2 rounded-lg cursor-pointer">
-      ➕ Add
+      {{ editingIndex !== null ? '✏️ Update' : '➕ Add' }}
     </button>
   </div>
 
@@ -19,7 +19,10 @@
       class="flex justify-between bg-gray-100 p-2 mt-2 rounded-lg"
     >
       <span>{{ task.task }}</span>
-      <button (click)="removeTask(i)" class="text-red-500 hover:underline">🗑️</button>
+      <div class="flex gap-2">
+        <button (click)="editTask(i)" class="text-yellow-600 hover:underline cursor-pointer">✏️</button>
+        <button (click)="removeTask(i)" class="text-red-500 hover:underline cursor-pointer">🗑️</button>
+      </div>
     </li>
   </ul>
 </div>
